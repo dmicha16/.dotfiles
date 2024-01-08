@@ -57,7 +57,7 @@ alias source_acado="source ~/repos/ACADOtoolkit/build/acado_env.sh"
 alias gd="git diff"
 alias gl="git log --oneline --decorate --graph"
 alias gas="git add . && git status"
-alias do_daily="cd ~/repos/Turf\ Tank/ && gas && git commit -m 'files' && cd"
+alias do_daily="cd ~/notes/Turf\ Tank/ && gas && git commit -m 'files' && cd"
 
 #######
 # misc
