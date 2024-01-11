@@ -14,9 +14,9 @@
 #=========================================
 
 #remove header and borders for windows
-# for_window [class="^.*"] border pixel 1 
-hide_edge_borders smart 
-default_border normal
+for_window [class="^.*"] border pixel 5
+# hide_edge_borders smart 
+# default_border normal
 exec --no-startup-id /usr/libexec/gsd-xsettings
 
 # nm-applet, this is supposed to be that small button to switch networks in the bottom right corner (only on MAIN screen)
@@ -25,7 +25,7 @@ exec --no-startup-id nm-applet
 bindsym $mod+p exec i3lock --image /home/dave/Downloads/nyc2.png --tiling
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # sets the super button as mod
@@ -87,12 +87,15 @@ for_window [title="^launcher$"] floating enable, sticky enable, resize set 30 pp
 
 # after exec the command is piped to app being launched, so in this case xfce cli args
 # to add stuff to this launcher to open make a .desktop file in /usr/share/applications
-set $menu exec gnome-terminal --title="launcher" -e /home/dave/scripts/sway-launcher-desktop/sway-launcher-desktop.sh
+# https://github.com/Biont/sway-launcher-desktop
+set $menu exec xfce4-terminal --title="launcher" -e /home/dave/scripts/sway-launcher-desktop/sway-launcher-desktop.sh
 bindsym $mod+d exec $menu
+# add dmenu as a backup launcher
+bindsym $mod+Shift+d exec dmenu
 
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #ffffff #285577 #ffffff #ffffff   #ffffff
+client.focused          #00008B #285577 #003391 #00008B   #003391
 client.focused_inactive #ffffff #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -135,8 +138,8 @@ bindsym $mod+h focus left
 # move focused window
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
-# bindsym $mod+Shift+l move right
-# bindsym $mod+Shift+h move left
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left
 
 # alternatively, you can use the cursor keys:
 # bindsym $mod+Shift+J move left
@@ -145,10 +148,10 @@ bindsym $mod+Shift+k move up
 # bindsym $mod+Shift+K move right
 
 # split in horizontal orientation
-bindsym $mod+Shift+h split horizontal exec gnome-terminal
+#bindsym $mod+Shift+h split horizontal exec xfce4-terminal
 
 # split in vertical orientation
-bindsym $mod+Shift+v split vertical exec gnome-terminal
+#bindsym $mod+Shift+v split vertical exec xfce4-terminal
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
